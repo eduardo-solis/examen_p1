@@ -12,9 +12,12 @@ namespace examen_p1.Models
         public string Telefono { get; set; }
 
         public string Tamaño { get; set; }
-        public int Ingredientes { get; set; }
+        public string Jamon { get; set; }
+        public string Piña { get; set; }
+        public string Champiñones { get; set; }
 
         public string FechaPedido { get; set; }
+        public int CantidadPizzas { get; set; }
         public double Subtotal { get; set; }
     }
 }

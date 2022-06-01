@@ -1,0 +1,94 @@
+﻿@model examen_p1.Models.Pedido
+
+@{
+    ViewBag.Title = "RegistroPedido";
+}
+
+<h2>RegistroPedido</h2>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <form action="/" method="post">
+
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <label for="Nombres">Nombre:</label>
+                        <input class="form-control" type="text" name="Nombres" value="" placeholder="Nombre" />
+                        <br />
+                        <label for="Telefono">Telefono:</label>
+                        <input class="form-control" type="text" name="Telefono" value="" placeholder="Telefono" maxlength="10" />
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="Direccion">Direccion:</label>
+                        <input class="form-control" type="text" name="Direccion" value="" placeholder="Direccion" />
+                        <br />
+                        <label for="FechaPedido">Fecha del pedido:</label>
+                        <input class="form-control" type="date" name="FechaPedido" value="" />
+                    </div>
+                </div>
+                <br />
+                <hr />
+                <br />
+                <div class="row">
+                    <!-- Tamaño de la pizza -->
+                    <div class="col-md-4">
+
+                        <p>Tamaño de la pizza</p>
+
+                        <input type="radio" name="Tamaño" value="Chica" checked />
+                        <label for="Tamaño">Chica</label>
+                        <br />
+                        <input type="radio" name="Tamaño" value="Mediana" />
+                        <label for="Tamaño">Mediana</label>
+                        <br />
+                        <input type="radio" name="Tamaño" value="Grande" />
+                        <label for="Tamaño">Grande</label>
+                        <br />
+
+                    </div>
+
+                    <!-- Ingredientes de la pizza -->
+                    <div class="col-md-4">
+
+                        <p>Tamaño de la pizza</p>
+
+                        <input type="checkbox" name="Jamon" value="Jamon" />
+                        <label for="Jamon">Jamon</label>
+                        <br />
+                        <input type="checkbox" name="Piña" value="Piña" />
+                        <label for="Piña">Piña</label>
+                        <br />
+                        <input type="checkbox" name="Champiñones" value="Champiñones" />
+                        <label for="Champiñones">Champiñones</label>
+                        <br />
+
+                    </div>
+
+                    <!-- Cantidad de pizzas -->
+                    <div class="col-md-4">
+
+                        <label for="CantidadPizzas">Cantidad de pizzas:</label>
+                        <input class="form-control" type="number" name="CantidadPizzas" value="1" />
+
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <input class="btn btn-primary" type="submit" name="name" value="Agregar" />
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+

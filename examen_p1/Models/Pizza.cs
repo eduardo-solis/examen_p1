@@ -8,6 +8,8 @@ namespace examen_p1.Models
     public class Pizza
     {
         public string Tamaño { get; set; }
-        public int Ingredientes { get; set; }
+        public string Jamon { get; set; }
+        public string Piña { get; set; }
+        public string Champiñones { get; set; }
     }
 }

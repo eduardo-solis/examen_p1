@@ -21,11 +21,15 @@ namespace examen_p1.Services
             c.Telefono = p.Telefono;
 
             pi.Tamaño = p.Tamaño;
-            pi.Ingredientes = p.Ingredientes;
+            pi.Jamon = p.Jamon;
+            pi.Piña = p.Piña;
+            pi.Champiñones = p.Champiñones;
 
-            var datosPedido = c.Nombres + "," + c.Direccion + "," + c.Telefono + "," + pi.Tamaño + "," + pi.Ingredientes + ","+ p.FechaPedido + "," + p.Subtotal + Environment.NewLine;
-            var datosCliente = c.Nombres + "," + c.Direccion + "," + c.Telefono + "," + Environment.NewLine;
-            var datosPizza = pi.Tamaño + "," + pi.Ingredientes + "," + Environment.NewLine;
+            p.Subtotal = calcularSubtotal(p);
+
+            var datosPedido = c.Nombres + "," + c.Direccion + "," + c.Telefono + "," + pi.Tamaño + "," + pi.Jamon + "," + pi.Piña + "," + pi.Champiñones + ","+ p.FechaPedido + "," + p.CantidadPizzas + "," + p.Subtotal + Environment.NewLine;
+            var datosCliente = c.Nombres + "," + c.Direccion + "," + c.Telefono + Environment.NewLine;
+            var datosPizza = pi.Tamaño + "," + pi.Jamon + "," + pi.Piña + "," + pi.Champiñones + Environment.NewLine;
 
 
             var pedidos = HttpContext.Current.Server.MapPath("~/App_Data/pedidos.txt");
@@ -158,6 +162,47 @@ namespace examen_p1.Services
             pedidosMes = lista_pedidos.ToArray();
 
             return pedidosMes;
+        }
+
+        public double calcularSubtotal(Pedido p)
+        {
+
+            double subtotal = 0;
+            double total;
+
+            switch (p.Tamaño)
+            {
+                case "Chica":
+                    subtotal = 40;
+                    break;
+                case "Mediana":
+                    subtotal = 80;
+                    break;
+                case "Grande":
+                    subtotal = 120;
+                    break;
+                default:
+                    subtotal = 40;
+                    break;
+            }
+
+            if (p.Jamon == "Jamon")
+            {
+                subtotal += 10;
+            }
+            if (p.Piña == "Piña")
+            {
+                subtotal += 10;
+            }
+            if (p.Champiñones == "Champiñones")
+            {
+                subtotal += 10;
+            }
+
+            total = subtotal * p.CantidadPizzas;
+
+            return total;
+
         }
 
     }
