@@ -17,19 +17,19 @@
                     <div class="col-md-6">
 
                         <label for="Nombres">Nombre:</label>
-                        <input class="form-control" type="text" name="Nombres" value="" placeholder="Nombre" />
+                        <input class="form-control" type="text" name="Nombres" value="" placeholder="Nombre" required />
                         <br />
                         <label for="Telefono">Telefono:</label>
-                        <input class="form-control" type="text" name="Telefono" value="" placeholder="Telefono" maxlength="10" />
+                        <input class="form-control" type="text" name="Telefono" value="" placeholder="Telefono" maxlength="10" required />
 
                     </div>
 
                     <div class="col-md-6">
                         <label for="Direccion">Direccion:</label>
-                        <input class="form-control" type="text" name="Direccion" value="" placeholder="Direccion" />
+                        <input class="form-control" type="text" name="Direccion" value="" placeholder="Direccion" required />
                         <br />
                         <label for="FechaPedido">Fecha del pedido:</label>
-                        <input class="form-control" type="date" name="FechaPedido" value="" />
+                        <input class="form-control" type="date" name="FechaPedido" value="" required />
                     </div>
                 </div>
                 <br />
@@ -74,7 +74,7 @@
                     <div class="col-md-4">
 
                         <label for="CantidadPizzas">Cantidad de pizzas:</label>
-                        <input class="form-control" type="number" name="CantidadPizzas" value="1" />
+                        <input class="form-control" type="number" name="CantidadPizzas" value="1" min="1" />
 
                     </div>
                 </div>
@@ -90,5 +90,49 @@
         </form>
 
     </div>
+</div>
+
+
+<br />
+<br />
+
+<div class="row">
+    <br />
+
+    <table class="table table-hover">
+
+        <thead>
+            <th>Tamaño</th>
+            <th>Ingredientes</th>
+            <th>Cantidad de pizzas</th>
+            <th>Subtotal</th>
+        </thead>
+
+            <tbody>
+
+                @if (ViewBag.pedidos != null)
+                {
+                    foreach (string registros in ViewBag.pedidos)
+                    {
+                        string[] item = registros.Split(',');
+                <tr>
+                    <td>@item[3]</td>
+                    <td>@item[4] @item[5] @item[6]</td>
+                    <td>@item[8]</td>
+                    <td>@item[9]</td>
+                </tr>
+                    }
+                }
+                else
+                {
+                    <tr class="warning text-center">
+                        <td colspan="4">No ha pedido ninguna pizza</td>
+                    </tr>
+                }
+
+            </tbody>
+
+    </table>
+
 </div>
 

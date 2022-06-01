@@ -13,6 +13,8 @@ namespace examen_p1.Controllers
         // GET: Pedido
         public ActionResult RegistroPedido()
         {
+            
+            ViewBag.pedidos = null;
             return View();
         }
 
@@ -22,7 +24,11 @@ namespace examen_p1.Controllers
             PedidoService ps = new PedidoService();
             ps.guardarPedido(p);
 
-            return View();
+            ViewBag.pedidos = ps.getPedidosByCliente(p.Nombres);
+
+            return View("RegistroPedido");
+
+            //return View();
         }
     }
 }

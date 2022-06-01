@@ -56,10 +56,8 @@ namespace examen_p1.Services
             return datosPedidos;
         }
 
-        public string[] getPedidosByCliente(string cliente)
+        public List<string> getPedidosByCliente(string cliente)
         {
-            string[] pedidosCliente = null;
-
             string[] datos = leerPedidos();
 
             List<string> lista_pedidos = new List<string>();
@@ -70,20 +68,43 @@ namespace examen_p1.Services
                 {
                     if (item.Equals(cliente))
                     {
-                        lista_pedidos.Add(registro);
+                        foreach(string item2 in registro.Split(',')) 
+                        { 
+                            try
+                            {
+                                DateTime localDate = DateTime.Now;
+
+                                string year = "";
+                                string month = "";
+                                string day = "";
+
+                                year = item.Substring(0, 4);
+                                month = item.Substring(5, 7);
+                                day = item.Substring(8);
+
+                                DateTime dt = new DateTime(year: Convert.ToInt32(year), month: Convert.ToInt32(month), day: Convert.ToInt32(day));
+
+                                if (dt.Day == localDate.Day && dt.Month == localDate.Month && dt.Year == localDate.Year)
+                                {
+                                    lista_pedidos.Add(registro);
+                                    break;
+                                }
+
+                            }
+                            catch (Exception ex)
+                            {
+                                continue;
+                            }
+                        }
                     }
                 }
             }
 
-            pedidosCliente = lista_pedidos.ToArray();
-
-            return pedidosCliente;
+            return lista_pedidos;
         }
 
-        public string[] getPedidosByDia(string dia)
+        public List<string> getPedidosByDia(string dia)
         {
-            string[] pedidosDia = null;
-
             List<string> lista_pedidos = new List<string>();
 
             string[] datos = leerPedidos();
@@ -117,15 +138,11 @@ namespace examen_p1.Services
                 }
             }
 
-            pedidosDia = lista_pedidos.ToArray();
-
-            return pedidosDia;
+            return lista_pedidos;
         }
 
-        public string[] getPedidosByMes(int mes)
+        public List<string> getPedidosByMes(int mes)
         {
-            string[] pedidosMes = null;
-
             List<string> lista_pedidos = new List<string>();
 
             string[] datos = leerPedidos();
@@ -159,9 +176,7 @@ namespace examen_p1.Services
                 }
             }
 
-            pedidosMes = lista_pedidos.ToArray();
-
-            return pedidosMes;
+            return lista_pedidos;
         }
 
         public double calcularSubtotal(Pedido p)
@@ -203,6 +218,51 @@ namespace examen_p1.Services
 
             return total;
 
+        }
+
+        public string getUltimoCliente()
+        {
+            string cliente = "";
+
+            string[] datos = leerPedidos();
+
+            cliente = datos[datos.Length - 1];
+
+            string nombre = "";
+
+            foreach (string item in cliente.Split(','))
+            {
+
+                try
+                {
+                    DateTime localDate = DateTime.Now;
+
+                    string year = "";
+                    string month = "";
+                    string day = "";
+
+                    year = item.Substring(0, 4);
+                    month = item.Substring(5, 7);
+                    day = item.Substring(8);
+
+                    DateTime dt = new DateTime(year: Convert.ToInt32(year), month: Convert.ToInt32(month), day: Convert.ToInt32(day));
+
+                    if (dt.Day == localDate.Day && dt.Month == localDate.Month && dt.Year == localDate.Year)
+                    {
+                        string[] datosCliente = cliente.Split(',');
+                        nombre = datosCliente[0];
+                        break;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+
+            }
+
+            return nombre;
         }
 
     }
