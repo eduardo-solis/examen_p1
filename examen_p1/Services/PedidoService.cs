@@ -26,6 +26,7 @@ namespace examen_p1.Services
             pi.Champiñones = p.Champiñones;
 
             p.Subtotal = calcularSubtotal(p);
+            //p.Estatus = 1;
 
             var datosPedido = c.Nombres + "," + c.Direccion + "," + c.Telefono + "," + pi.Tamaño + "," + pi.Jamon + "," + pi.Piña + "," + pi.Champiñones + ","+ p.FechaPedido + "," + p.CantidadPizzas + "," + p.Subtotal + Environment.NewLine;
             var datosCliente = c.Nombres + "," + c.Direccion + "," + c.Telefono + Environment.NewLine;
@@ -64,40 +65,36 @@ namespace examen_p1.Services
 
             foreach (string registro in datos)
             {
-                foreach(string item in registro.Split(','))
+                string[] x = registro.Split(',');
+
+                if(x[0].Equals(cliente))
                 {
-                    if (item.Equals(cliente))
+                    
+                    DateTime localDate = DateTime.Now;
+
+                    string year = "";
+                    string month = "";
+                    string day = "";
+
+                    string fecha = x[7];
+
+                    year = fecha.Substring(0, 4);
+                    month = fecha.Substring(5, 2);
+                    day = fecha.Substring(8);
+
+                    DateTime dt = new DateTime(year: Convert.ToInt32(year), month: Convert.ToInt32(month), day: Convert.ToInt32(day));
+
+                    if (dt.Day == localDate.Day && dt.Month == localDate.Month && dt.Year == localDate.Year)
                     {
-                        foreach(string item2 in registro.Split(',')) 
-                        { 
-                            try
-                            {
-                                DateTime localDate = DateTime.Now;
-
-                                string year = "";
-                                string month = "";
-                                string day = "";
-
-                                year = item.Substring(0, 4);
-                                month = item.Substring(5, 7);
-                                day = item.Substring(8);
-
-                                DateTime dt = new DateTime(year: Convert.ToInt32(year), month: Convert.ToInt32(month), day: Convert.ToInt32(day));
-
-                                if (dt.Day == localDate.Day && dt.Month == localDate.Month && dt.Year == localDate.Year)
-                                {
-                                    lista_pedidos.Add(registro);
-                                    break;
-                                }
-
-                            }
-                            catch (Exception ex)
-                            {
-                                continue;
-                            }
-                        }
+                        lista_pedidos.Add(registro);
+                        //if (x[x.Length - 1] == "1") // Quiere decir que el pedido esta activo
+                        //{
+                        //    lista_pedidos.Add(registro);
+                        //}
                     }
                 }
+
+                
             }
 
             return lista_pedidos;
@@ -111,31 +108,29 @@ namespace examen_p1.Services
 
             foreach (string registro in datos)
             {
-                foreach(string item in registro.Split(','))
+
+                string[] x = registro.Split(',');
+
+                DateTime localDate = DateTime.Now;
+
+                string year = "";
+                string month = "";
+                string day = "";
+
+                string fecha = x[7];
+
+                year = fecha.Substring(0, 4);
+                month = fecha.Substring(5, 2);
+                day = fecha.Substring(8);
+
+                DateTime dt = new DateTime(year: Convert.ToInt32(year), month: Convert.ToInt32(month), day: Convert.ToInt32(day));
+
+                string diaSemana = Convert.ToString(dt.DayOfWeek);
+                if (diaSemana.Equals(dia))
                 {
-                    try
-                    {
-                        // 2000-01-09
-                        string year = "";
-                        string month = "";
-                        string day = "";
-
-                        year = item.Substring(0, 4);
-                        month = item.Substring(5, 7);
-                        day = item.Substring(8);
-
-                        DateTime dt = new DateTime(year: Convert.ToInt32(year), month: Convert.ToInt32(month), day: Convert.ToInt32(day));
-                        string diaSemana = Convert.ToString(dt.DayOfWeek);
-                        if (diaSemana.Equals(dia))
-                        {
-                            lista_pedidos.Add(registro);
-                        }
-                    }
-                    catch(Exception ex)
-                    {
-                        continue;
-                    }
+                    lista_pedidos.Add(registro);
                 }
+
             }
 
             return lista_pedidos;
@@ -149,31 +144,29 @@ namespace examen_p1.Services
 
             foreach (string registro in datos)
             {
-                foreach (string item in registro.Split(','))
+
+                string[] x = registro.Split(',');
+
+                DateTime localDate = DateTime.Now;
+
+                string year = "";
+                string month = "";
+                string day = "";
+
+                string fecha = x[7];
+
+                year = fecha.Substring(0, 4);
+                month = fecha.Substring(5, 2);
+                day = fecha.Substring(8);
+
+                DateTime dt = new DateTime(year: Convert.ToInt32(year), month: Convert.ToInt32(month), day: Convert.ToInt32(day));
+
+                int mesAnio = Convert.ToInt32(dt.Month);
+                if (mesAnio == mes)
                 {
-                    try
-                    {
-                        // 2000-01-09
-                        string year = "";
-                        string month = "";
-                        string day = "";
-
-                        year = item.Substring(0, 4);
-                        month = item.Substring(5, 7);
-                        day = item.Substring(8);
-
-                        DateTime dt = new DateTime(year: Convert.ToInt32(year), month: Convert.ToInt32(month), day: Convert.ToInt32(day));
-                        int mesAnio = Convert.ToInt32(dt.Month);
-                        if (mesAnio == mes)
-                        {
-                            lista_pedidos.Add(registro);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        continue;
-                    }
+                    lista_pedidos.Add(registro);
                 }
+
             }
 
             return lista_pedidos;

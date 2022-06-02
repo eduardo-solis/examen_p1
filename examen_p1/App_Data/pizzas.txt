@@ -1,12 +1,5 @@
 Chica,Jamon,,
-Chica,Jamon,Piña,Champiñones
+Mediana,Jamon,Piña,
 Grande,Jamon,Piña,Champiñones
-Chica,,Piña,
-Mediana,,Piña,Champiñones
-Chica,Jamon,Piña,
-Chica,,,Champiñones
+Mediana,,Piña,
 Grande,Jamon,Piña,Champiñones
-Mediana,Jamon,,
-Grande,Jamon,Piña,Champiñones
-Grande,,,
-Grande,,Piña,

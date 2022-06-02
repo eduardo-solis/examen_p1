@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,6 +127,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Consulta.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Pizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,6 +170,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Pedido\RegistroPedido.cshtml" />
+    <Content Include="Views\Pedido\TerminarPedido.cshtml" />
+    <Content Include="Views\Pedido\Ventas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

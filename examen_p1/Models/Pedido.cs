@@ -19,5 +19,6 @@ namespace examen_p1.Models
         public string FechaPedido { get; set; }
         public int CantidadPizzas { get; set; }
         public double Subtotal { get; set; }
+        public int Estatus { get; set; }
     }
 }
