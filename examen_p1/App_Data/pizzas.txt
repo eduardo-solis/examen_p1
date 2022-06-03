@@ -1,5 +1,0 @@
-Chica,Jamon,,
-Mediana,Jamon,Piña,
-Grande,Jamon,Piña,Champiñones
-Mediana,,Piña,
-Grande,Jamon,Piña,Champiñones

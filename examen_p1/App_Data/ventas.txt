@@ -1,0 +1,4 @@
+Eduardo,Sabinas 230 Col. Coahuila,8113474548,Chica,,,,2022-06-03,1,40
+Eduardo,Sabinas 230 Col. Coahuila,8113474548,Chica,Jamon,,,2022-06-03,1,50
+Eduardo,Sabinas 230 Col. Coahuila,8113474548,Grande,Jamon,Piña,Champiñones,2022-06-03,1,150
+Eduardo,Sabinas 230 Col. Coahuila,8113474548,Mediana,,Piña,Champiñones,2022-07-01,1,100

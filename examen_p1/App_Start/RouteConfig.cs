@@ -16,7 +16,7 @@ namespace examen_p1
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Pedido", action = "RegistroPedido", id = UrlParameter.Optional }
+                defaults: new { controller = "Pedido", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

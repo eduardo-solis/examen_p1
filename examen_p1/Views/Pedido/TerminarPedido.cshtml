@@ -14,7 +14,11 @@
         <div class="col-md-4">Cliente: @ViewBag.nombre_cliente</div>
         <div class="col-md-4">Fecha: @ViewBag.fecha</div>
         <div class="col-md-4">
-            <a href="/" class="btn btn-primary">Pagar</a>
+
+            <form action="/Pedido/Pagar?nombre_cliente=@ViewBag.nombre_cliente" method="post">
+                <input class="btn btn-primary" type="submit" name="name" value="Pagar" />
+            </form>
+
         </div>
     </div>
     
@@ -40,7 +44,7 @@
                 foreach (string registros in ViewBag.pedidos)
                 {
                     string[] item = registros.Split(',');
-                    total += Convert.ToDouble(item[item.Length - 1]);
+                    total += Convert.ToDouble(item[9]);
                     <tr>
                         <td>@item[3]</td>
                         <td>@item[4] @item[5] @item[6]</td>

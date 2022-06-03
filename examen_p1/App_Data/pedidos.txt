@@ -1,5 +1,0 @@
-Eduardo,Sabinas 230 Col. Coahuila,8113474548,Chica,Jamon,,,2022-06-02,1,50
-Eduardo,Sabinas 230 Col. Coahuila,8113474548,Mediana,Jamon,Piña,,2022-06-02,1,100
-Eduardo,Sabinas 230 Col. Coahuila,8113474548,Grande,Jamon,Piña,Champiñones,2022-06-02,1,150
-Sandra,Sabinas 230 Col. Coahuila,1234567899,Mediana,,Piña,,2022-06-03,1,90
-Sandra,Sabinas 230 Col. Coahuila,1234567899,Grande,Jamon,Piña,Champiñones,2022-07-01,1,150

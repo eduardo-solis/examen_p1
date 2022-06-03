@@ -126,10 +126,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Consulta.cs" />
     <Compile Include="Models\Pedido.cs" />
-    <Compile Include="Models\Pizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PedidoService.cs" />
   </ItemGroup>
@@ -172,6 +170,7 @@
     <Content Include="Views\Pedido\RegistroPedido.cshtml" />
     <Content Include="Views\Pedido\TerminarPedido.cshtml" />
     <Content Include="Views\Pedido\Ventas.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

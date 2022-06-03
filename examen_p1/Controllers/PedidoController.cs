@@ -11,7 +11,13 @@ namespace examen_p1.Controllers
 {
     public class PedidoController : Controller
     {
-        // GET: Pedido
+        
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
         public ActionResult RegistroPedido()
         {
             
@@ -51,6 +57,7 @@ namespace examen_p1.Controllers
             string nombre = Request.QueryString["nombre_cliente"].ToString();
 
             PedidoService ps = new PedidoService();
+
             ViewBag.pedidos = ps.getPedidosByCliente(nombre);
 
             ViewBag.nombre_cliente = nombre;
@@ -58,6 +65,20 @@ namespace examen_p1.Controllers
 
             return View("TerminarPedido");
 
+        }
+
+        public ActionResult Pagar(string nombre_cliente)
+        {
+            string nombre = Request.QueryString["nombre_cliente"].ToString();
+
+            PedidoService ps = new PedidoService();
+            List<string> pedidosPagados = new List<string>();
+
+            pedidosPagados = ps.getPedidosByCliente(nombre);
+
+            ps.actualizarPedido(pedidosPagados);
+
+            return View("Index");
         }
 
         public ActionResult Ventas()
@@ -78,12 +99,12 @@ namespace examen_p1.Controllers
             if (c.TipoBusqueda.Equals("Dias"))
             {
                 ViewBag.pedidos = ps.getPedidosByDia(c.FiltroDia);
-                ViewBag.filtro = "Dia: " + c.FiltroDia;
+                ViewBag.filtro = "Dia: " + ps.getDiaSemana(c.FiltroDia);
             }
             else if (c.TipoBusqueda.Equals("Mes"))
             {
                 ViewBag.pedidos = ps.getPedidosByMes(Convert.ToInt32(c.FiltroMes));
-                ViewBag.filtro = "Mes: " + c.FiltroMes;
+                ViewBag.filtro = "Mes: " + ps.getMesAnio(c.FiltroMes);
             }
 
             return View("Ventas");
